@@ -1,5 +1,5 @@
-##Aim:Program to implement Priorty Queue with enqueue , dequeue, and traverse using gui.
-##Bhumika Shelar S113
+## Aim: Program to implement Priority Queue with enqueue, dequeue, and traverse using GUI.
+## Bhumika Shelar S113
 
 from tkinter import *
 from tkinter import messagebox, simpledialog
@@ -45,49 +45,49 @@ class PriorityQueueApp:
 
         # Create GUI elements
         self.label = Label(root, text="Priority Queue Data Structure", font=("Arial", 20), bg="#CC9966")
-        self.label.grid(row=0, column=0, columnspan=6, pady=10)
+        self.label.grid(row=0, column=0, columnspan=2, pady=10)
 
-        self.label = Label(root, text="Name:Bhumika Shelar ", font=("Arial", 15), bg="#CC9966")
-        self.label.grid(row=1, column=0, columnspan=6, pady=10)
+        self.name_label = Label(root, text="Name: Bhumika Shelar", font=("Arial", 15), bg="#CC9966")
+        self.name_label.grid(row=1, column=0, columnspan=2, pady=10)
 
-        self.label = Label(root, text="Roll No.S113", font=("Arial", 15), bg="#CC9966")
-        self.label.grid(row=1, column=1, columnspan=6, pady=10)
+        self.roll_label = Label(root, text="Roll No. S113", font=("Arial", 15), bg="#CC9966")
+        self.roll_label.grid(row=2, column=0, columnspan=2, pady=10)
 
         self.size_label = Label(self.root, text="Enter size of queue:", font=("Arial", 14), bg="#CC9966")
-        self.size_label.grid(row=2, column=0, padx=10, pady=10)
+        self.size_label.grid(row=3, column=0, padx=10, pady=10)
 
         self.size_entry = Entry(self.root, width=20, font=("Arial", 14))
-        self.size_entry.grid(row=2, column=1, padx=10, pady=10)
+        self.size_entry.grid(row=3, column=1, padx=10, pady=10)
 
         self.set_size_button = Button(self.root, text="Set Size", font=("Arial", 14), command=self.set_queue_size)
-        self.set_size_button.grid(row=2, column=2, padx=10, pady=10)
+        self.set_size_button.grid(row=4, column=0, columnspan=2, padx=10, pady=10)
 
         self.entry_label = Label(self.root, text="Enter process:", font=("Arial", 14), bg="#CC9966")
-        self.entry_label.grid(row=3, column=0, padx=10, pady=10)
-
-        self.priority_label = Label(self.root, text="Enter priority:", font=("Arial", 14), bg="#CC9966")
-        self.priority_label.grid(row=3, column=2, padx=10, pady=10)
+        self.entry_label.grid(row=5, column=0, padx=10, pady=10)
 
         self.entry = Entry(self.root, width=20, font=("Arial", 14))
-        self.entry.grid(row=3, column=1, padx=10, pady=10)
+        self.entry.grid(row=5, column=1, padx=10, pady=10)
+
+        self.priority_label = Label(self.root, text="Enter priority:", font=("Arial", 14), bg="#CC9966")
+        self.priority_label.grid(row=6, column=0, padx=10, pady=10)
 
         self.priority_entry = Entry(self.root, width=20, font=("Arial", 14))
-        self.priority_entry.grid(row=3, column=3, padx=10, pady=10)
+        self.priority_entry.grid(row=6, column=1, padx=10, pady=10)
 
         self.enqueue_button = Button(self.root, text="Enqueue", font=("Arial", 14), command=self.enqueue_element)
-        self.enqueue_button.grid(row=3, column=4, padx=10, pady=10)
+        self.enqueue_button.grid(row=7, column=0, columnspan=2, padx=10, pady=10)
 
         self.dequeue_button = Button(self.root, text="Dequeue", font=("Arial", 14), command=self.dequeue_element)
-        self.dequeue_button.grid(row=3, column=5, padx=10, pady=10)
+        self.dequeue_button.grid(row=8, column=0, columnspan=2, padx=10, pady=10)
 
         self.traverse_button = Button(self.root, text="Traverse", font=("Arial", 14), command=self.traverse_queue)
-        self.traverse_button.grid(row=4, column=0, columnspan=6, padx=10, pady=10)
+        self.traverse_button.grid(row=9, column=0, columnspan=2, padx=10, pady=10)
 
         self.status_label = Label(self.root, text="", font=("Arial", 14), bg="#CC9966")
-        self.status_label.grid(row=5, column=0, columnspan=6, pady=10)
+        self.status_label.grid(row=10, column=0, columnspan=2, pady=10)
 
         self.queue_display_label = Label(self.root, text="", font=("Arial", 14), bg="#CC9966")
-        self.queue_display_label.grid(row=6, column=0, columnspan=6, pady=10)
+        self.queue_display_label.grid(row=0, column=2, rowspan=11, padx=10, pady=10, sticky=N)
 
         self.queue = PriorityQueue()
 
