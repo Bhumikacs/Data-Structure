@@ -39,21 +39,21 @@ class PriorityQueueGUI:
         self.pq = PriorityQueue()
         self.root = root
         self.root.title("Priority Queue GUI")
-        self.root.configure(bg='light blue')
+        self.root.configure(bg='#669999')
         self.root.state('zoomed')
         self.create_widgets()
 
     def create_widgets(self):
         # Title Label
-        self.title_label = tk.Label(self.root, text="Priority Queue Operations", font=('Arial', 20), bg='light blue')
+        self.title_label = tk.Label(self.root, text="Priority Queue Operations", font=('Arial', 20), bg='#669999')
         self.title_label.grid(row=0, column=0, columnspan=2, pady=10)
 
         # Name Label
-        self.name_label = tk.Label(self.root, text="Bhumika Shelar S113", font=('Arial', 20), bg='light blue')
+        self.name_label = tk.Label(self.root, text="Bhumika Shelar S113", font=('Arial', 20), bg='#669999')
         self.name_label.grid(row=1, column=0, columnspan=2, pady=10)
         
         # Size Entry and Label
-        self.size_label = tk.Label(self.root, text="Queue Size:", font=('Arial', 20), bg='light blue')
+        self.size_label = tk.Label(self.root, text="Queue Size:", font=('Arial', 20), bg='#669999')
         self.size_label.grid(row=2, column=0, padx=10, pady=5, sticky='e')
         self.size_entry = tk.Entry(self.root, font=('Arial', 20))
         self.size_entry.grid(row=2, column=1, padx=10, pady=5, sticky='w')
