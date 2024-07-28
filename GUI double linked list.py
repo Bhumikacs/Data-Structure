@@ -1,7 +1,3 @@
-##Practical No.4
-##Program to implement Doubly linked list with insertion, deletion, traversal operation using GUI
-##Bhumika Shelar S113
-
 from tkinter import *
 from tkinter import messagebox
 
@@ -72,39 +68,42 @@ class DLLApp:
         self.root = root
         self.root.title("Doubly Linked List Data Structure")
         self.root.state("zoomed")
-        self.root.configure(bg='light blue')
+        self.root.configure(bg='#339933')
 
         # Create GUI elements
-        self.label = Label(root, text="Doubly Linked List Data Structure", font=("Arial", 20), bg="light blue")
-        self.label.grid(row=0, column=0, columnspan=6, pady=10)
+        self.label = Label(root, text="Doubly Linked List Data Structure", font=("Arial", 20), bg="#339933")
+        self.label.grid(row=0, column=0, columnspan=3, pady=10, sticky="w")
 
-        self.entry_label = Label(self.root, text="Enter element:", font=("Arial", 14), bg="light blue")
-        self.entry_label.grid(row=1, column=0, padx=10, pady=10)
+        self.name_label = Label(root, text="Bhumika Shelar S113", font=("Arial", 16), bg="#339933")
+        self.name_label.grid(row=1, column=0, columnspan=3, pady=10, sticky="w")
+
+        self.entry_label = Label(self.root, text="Enter element:", font=("Arial", 14), bg="#339933")
+        self.entry_label.grid(row=2, column=0, padx=10, pady=10, sticky="w")
 
         self.entry = Entry(self.root, width=20, font=("Arial", 14))
-        self.entry.grid(row=1, column=1, padx=10, pady=10)
+        self.entry.grid(row=2, column=1, padx=10, pady=10, sticky="w")
 
         self.insert_beginning_button = Button(self.root, text="Insert at Beginning", font=("Arial", 14), command=self.insert_at_beginning)
-        self.insert_beginning_button.grid(row=1, column=2, padx=10, pady=10)
+        self.insert_beginning_button.grid(row=3, column=0, padx=10, pady=10, sticky="w")
 
         self.insert_end_button = Button(self.root, text="Insert at End", font=("Arial", 14), command=self.insert_at_end)
-        self.insert_end_button.grid(row=1, column=3, padx=10, pady=10)
+        self.insert_end_button.grid(row=3, column=1, padx=10, pady=10, sticky="w")
 
         self.delete_beginning_button = Button(self.root, text="Delete at Beginning", font=("Arial", 14), command=self.delete_at_beginning)
-        self.delete_beginning_button.grid(row=2, column=2, padx=10, pady=10)
+        self.delete_beginning_button.grid(row=4, column=0, padx=10, pady=10, sticky="w")
 
         self.delete_end_button = Button(self.root, text="Delete at End", font=("Arial", 14), command=self.delete_at_end)
-        self.delete_end_button.grid(row=2, column=3, padx=10, pady=10)
+        self.delete_end_button.grid(row=4, column=1, padx=10, pady=10, sticky="w")
 
         self.traverse_button = Button(self.root, text="Traverse", font=("Arial", 14), command=self.traverse_list)
-        self.traverse_button.grid(row=2, column=4, padx=10, pady=10)
+        self.traverse_button.grid(row=5, column=0, padx=10, pady=10, sticky="w")
 
-        self.status_label = Label(self.root, text="", font=("Arial", 14), bg="light blue")
-        self.status_label.grid(row=3, column=0, columnspan=6, pady=10)
+        self.status_label = Label(self.root, text="", font=("Arial", 14), bg="#339933")
+        self.status_label.grid(row=6, column=0, columnspan=3, pady=10, sticky="w")
 
         # Add a frame to display the list with a scrollbar
         self.list_frame = Frame(self.root, bg="white")
-        self.list_frame.grid(row=4, column=0, columnspan=6, pady=10, sticky="nsew")
+        self.list_frame.grid(row=2, column=2, rowspan=5, padx=10, pady=10, sticky="nsew")
 
         self.canvas = Canvas(self.list_frame, bg="white")
         self.canvas.pack(side=LEFT, fill=BOTH, expand=True)
