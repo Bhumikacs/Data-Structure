@@ -146,15 +146,17 @@ class BinaryTreeGUI:
                                           command=self.postorder_traversal, width=20)
         self.postorder_button.grid(row=7, column=0, padx=10, pady=10)
 
-        # Create a white box to display the traversal results
-        self.result_box = tk.Text(root, font=self.label_font, width=50, height=15, bg="white")
-        self.result_box.grid(row=2, column=1, rowspan=6, padx=20, pady=10)
+        # Canvas to draw the tree structure
+        self.canvas = tk.Canvas(root, width=800, height=600, bg="white")
+        self.canvas.grid(row=2, column=1, rowspan=6, padx=20, pady=10)
 
     def insert_value(self):  
         value = self.entry.get()
         if value.isdigit():
             self.bt.insert(int(value))
             messagebox.showinfo("Success", f"Value {value} inserted.")
+            self.canvas.delete("all")  # Clear the previous drawing
+            self.draw_tree()  # Draw the updated tree
         else:
             messagebox.showerror("Error", "Please enter a valid integer.")
 
@@ -163,20 +165,38 @@ class BinaryTreeGUI:
         if value.isdigit():
             self.bt.delete(int(value))
             messagebox.showinfo("Success", f"Value {value} deleted.")
+            self.canvas.delete("all")  # Clear the previous drawing
+            self.draw_tree()  # Draw the updated tree
         else:
             messagebox.showerror("Error", "Please enter a valid integer.")
 
     def inorder_traversal(self):  
         result = self.bt.inorder_traversal()
-        self.result_box.insert(tk.END, f"In-order Traversal: {result}\n")
+        messagebox.showinfo("In-order Traversal", f"Result: {result}")
 
     def preorder_traversal(self):  
         result = self.bt.preorder_traversal()
-        self.result_box.insert(tk.END, f"Pre-order Traversal: {result}\n")
+        messagebox.showinfo("Pre-order Traversal", f"Result: {result}")
 
     def postorder_traversal(self):  
         result = self.bt.postorder_traversal()
-        self.result_box.insert(tk.END, f"Post-order Traversal: {result}\n")
+        messagebox.showinfo("Post-order Traversal", f"Result: {result}")
+
+    def draw_tree(self):
+        if self.bt.root is not None:
+            self._draw_tree(self.bt.root, 400, 50, 200)
+
+    def _draw_tree(self, node, x, y, offset):
+        if node.left:
+            self.canvas.create_line(x, y, x - offset, y + 60, fill="black")
+            self._draw_tree(node.left, x - offset, y + 60, offset // 2)
+
+        if node.right:
+            self.canvas.create_line(x, y, x + offset, y + 60, fill="black")
+            self._draw_tree(node.right, x + offset, y + 60, offset // 2)
+
+        self.canvas.create_oval(x - 15, y - 15, x + 15, y + 15, fill="#8F79A1")
+        self.canvas.create_text(x, y, text=str(node.val), fill="white", font=self.button_font)
 
 # Main function to run the GUI
 if __name__ == '__main__':
